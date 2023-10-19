@@ -1,0 +1,14 @@
+[package]
+name = "recording-oracle-master-app"
+version = "0.1.0"
+edition = "2021"
+authors = ["Eugene <eugene@hmt.ai>"]
+build = "build.rs"
+
+[dependencies]
+sgx_types = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_urts = { git = "https://github.com/apache/teaclave-sgx-sdk.git"}
+
+[patch.'https://github.com/apache/teaclave-sgx-sdk.git']
+sgx_types = { path = "../../../../sgx_types" }
+sgx_urts = { path = "../../../../sgx_urts" }

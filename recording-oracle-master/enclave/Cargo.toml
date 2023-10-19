@@ -1,0 +1,24 @@
+[package]
+name = "recording-oracle-worker-enclave"
+version = "0.1.0"
+edition = "2021"
+authors = ["Eugene <eugene@hmt.ai>"]
+
+[lib]
+name = "recording_oracle_worker_enclave"
+crate-type = ["staticlib"]
+
+[features]
+default = []
+
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_types = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_tstd = { git = "https://github.com/apache/teaclave-sgx-sdk.git", features = ["backtrace"] }
+sgx_tcrypto = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_trts = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_tseal = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_serialize = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_alloc = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+sgx_libc = { git = "https://github.com/apache/teaclave-sgx-sdk.git" }
+
+[patch.'https://github.com/apache/teaclave-sgx-sdk.git']
